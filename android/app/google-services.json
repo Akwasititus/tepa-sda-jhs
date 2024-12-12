@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "992696169490",
+    "project_id": "sda-jsh",
+    "storage_bucket": "sda-jsh.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:992696169490:android:ab7bc3e32efde227fe54cb",
+        "android_client_info": {
+          "package_name": "com.titi.sda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY_hNbHRJ5lTywVbjs85fQSJeZwweOXqk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
