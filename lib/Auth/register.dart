@@ -243,26 +243,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     const SizedBox(height: 10),
 
                     // Subtitle
-
-                    if(selectedRole == 'Teacher') ...[
-                      Text(
-                        'You have selected to register as a Teacher',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                    ] else ...[
-                    Text(
-                      'You have selected to register as a Parent',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[700],
-                      ),
+                    Column(
+                      children: selectedRole == 'Teacher'
+                          ? [
+                              Text(
+                                'You have selected to register as a Teacher',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ]
+                          : [
+                              Text(
+                                'You have selected to register as a Parent',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ],
                     ),
-                    ],
-
-
 
                     const SizedBox(height: 30),
 
