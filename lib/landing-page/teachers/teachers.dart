@@ -38,18 +38,7 @@ class _StudentsListPageState extends State<StudentsListPage> {
     final String description = _descriptionController.text.trim();
     final String quizLink = _quizLinkController.text.trim();
 
-    if (title.isEmpty ||
 
-        quizLink.isEmpty ||
-        _deadline == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-
-            content: Text('Please fill all fields')),
-      );
-      Navigator.of(context).pop();
-      return;
-    }
     setState(() {
       isLoading = true;
     });
@@ -73,7 +62,10 @@ class _StudentsListPageState extends State<StudentsListPage> {
       _clearFormFields();
     } catch (error) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to add quiz: $error')),
+
+        SnackBar(
+            backgroundColor: Colors.red,
+            content: Text('Failed to add quiz: $error')),
       );
     } finally {
       setState(() {

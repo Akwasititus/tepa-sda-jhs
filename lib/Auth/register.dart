@@ -306,7 +306,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         hintText: 'Student Index Number',
                         controller: indexNumberController,
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.text,
                         prefixIcon: Icons.numbers,
                         validator: validateIndexOrStaffID,
                       ),
@@ -353,7 +353,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         hintText: 'Teachers Staff ID',
                         controller: teachersStaffIDController,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.text,
                         prefixIcon: Icons.numbers,
                         // validator: validateIndexOrStaffID,
                       ),
@@ -385,7 +385,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         hintText: 'Ghana card No.',
                         controller: teachersGhanaCardController,
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.text,
                         prefixIcon: Icons.insert_drive_file_outlined,
                         validator: validateName,
                       ),
@@ -393,7 +393,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         hintText: 'Teachers License No.',
                         controller: teachersLicencesController,
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.text,
                         prefixIcon: Icons.ac_unit,
                         validator: validateName,
                       ),
@@ -401,7 +401,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       CustomTextField(
                         hintText: 'Phone Contact',
                         controller: teachersPhoneContactController,
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.phone,
                         prefixIcon: Icons.phone,
                         validator: validateName,
                       ),
@@ -425,7 +425,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: teachersMaritalStatusController,
                         prefixIcon: Icons.margin_outlined,
                         studentLevel: 'Marital Status',
-                        level: const ['Single', 'Marriage'],
+                        level: const [
+                          'Single',
+                          'Married',
+                          'Divorce' ],
                       ),
                       const SizedBox(height: 15),
                       CustomDropdown(

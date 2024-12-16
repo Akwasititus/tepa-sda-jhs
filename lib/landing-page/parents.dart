@@ -61,99 +61,89 @@ class _ParentHomePageState extends State<ParentHomePage> {
     var minutes = time.hour * 60 + time.minute;
 
     if (day == DateTime.saturday || day == DateTime.sunday) {
-      // Check if it is a weekend
+      // Weekend case
       currentPeriod = 'Happy Weekends';
-      timeRemaining = ''; // Clear the timeRemaining as it's not applicable on weekends
+      timeRemaining = ''; // No time remaining on weekends
     } else {
       // Define school periods based on the new table
       if (minutes >= 480 && minutes < 570) {
         // 8:00 - 9:30
-        currentPeriod = '1 and 2 period';
+        currentPeriod = '1st and 2nd period';
       } else if (minutes >= 570 && minutes < 615) {
         // 9:30 - 10:15
         currentPeriod = 'First Break';
       } else if (minutes >= 615 && minutes < 705) {
         // 10:15 - 11:45
-        currentPeriod = '3 and 4 period';
+        currentPeriod = '3rd and 4th period';
       } else if (minutes >= 705 && minutes < 795) {
         // 11:45 - 1:15
-        currentPeriod = '5 and 6 period';
+        currentPeriod = '5th and 6th period';
       } else if (minutes >= 795 && minutes < 810) {
         // 1:15 - 1:30
         currentPeriod = '2nd lunch break';
       } else if (minutes >= 810 && minutes < 900) {
         // 1:30 - 3:00
-        currentPeriod = '7 and 8 period';
-      } else if (minutes >= 900) {
-        // 3:00 and onwards
-        currentPeriod = 'School Closed';
+        currentPeriod = '7th and 8th period';
       } else {
+        // 3:00 and onwards
         currentPeriod = 'School Closed';
       }
 
-      _updateTimeRemaining(); // Only call if it's not a weekend
+      _updateTimeRemaining(); // Update time remaining for active periods
     }
 
     setState(() {});
   }
 
-
   Widget _getPeriodIcon() {
-    if (currentPeriod == 'Happy Weekends') {
-      return const Icon(
-        Icons.weekend,
-        size: 50,
-        color: Colors.white,
-      );
-    } else if (currentPeriod == 'First Period') {
-      return const Icon(Icons.school, size: 50, color: Colors.white);
-    } else if (currentPeriod == 'Second Period') {
-      return const Icon(Icons.filter_2, size: 50, color: Colors.white);
-    } else if (currentPeriod == 'First Break') {
-      return const Icon(Icons.free_breakfast, size: 50, color: Colors.white);
-    } else if (currentPeriod == 'School Closed') {
-      return const Icon(
-        Icons.lock,
-        size: 50,
-        color: Colors.white,
-      );
+    switch (currentPeriod) {
+      case 'Happy Weekends':
+        return const Icon(Icons.weekend, size: 50, color: Colors.white);
+      case '1st and 2nd period':
+      case '3rd and 4th period':
+      case '5th and 6th period':
+      case '7th and 8th period':
+        return const Icon(Icons.school, size: 50, color: Colors.white);
+      case 'First Break':
+        return const Icon(Icons.free_breakfast, size: 50, color: Colors.white);
+      case '2nd lunch break':
+        return const Icon(Icons.lunch_dining, size: 50, color: Colors.white);
+      case 'School Closed':
+        return const Icon(Icons.lock, size: 50, color: Colors.white);
+      default:
+        return const Icon(Icons.schedule, size: 50, color: Colors.white);
     }
-    return const Icon(
-      Icons.schedule,
-      size: 50,
-      color: Colors.white,
-    );
   }
-
 
   void _updateTimeRemaining() {
     var now = DateTime.now();
     var time = TimeOfDay.fromDateTime(now);
     var currentMinutes = time.hour * 60 + time.minute;
+    int remainingMinutes;
 
     switch (currentPeriod) {
-      case '1 and 2 period':
-        var remainingMinutes = 570 - currentMinutes;
+      case '1st and 2nd period':
+        remainingMinutes = 570 - currentMinutes;
         timeRemaining = '$remainingMinutes minutes remaining for First Break';
         break;
       case 'First Break':
-        var remainingMinutes = 615 - currentMinutes;
-        timeRemaining = '$remainingMinutes minutes remaining for 3 and 4 period';
+        remainingMinutes = 615 - currentMinutes;
+        timeRemaining = '$remainingMinutes minutes remaining for 3rd and 4th period';
         break;
-      case '3 and 4 period':
-        var remainingMinutes = 705 - currentMinutes;
-        timeRemaining = '$remainingMinutes minutes remaining for 5 and 6 period';
+      case '3rd and 4th period':
+        remainingMinutes = 705 - currentMinutes;
+        timeRemaining = '$remainingMinutes minutes remaining for 5th and 6th period';
         break;
-      case '5 and 6 period':
-        var remainingMinutes = 795 - currentMinutes;
+      case '5th and 6th period':
+        remainingMinutes = 795 - currentMinutes;
         timeRemaining = '$remainingMinutes minutes remaining for 2nd lunch break';
         break;
       case '2nd lunch break':
-        var remainingMinutes = 810 - currentMinutes;
-        timeRemaining = '$remainingMinutes minutes remaining for 7 and 8 period';
+        remainingMinutes = 810 - currentMinutes;
+        timeRemaining = '$remainingMinutes minutes remaining for 7th and 8th period';
         break;
-      case '7 and 8 period':
-        var remainingMinutes = 900 - currentMinutes;
+      case '7th and 8th period':
+        remainingMinutes = 900 - currentMinutes;
         timeRemaining = '$remainingMinutes minutes remaining for School Closed';
         break;
       default:
@@ -162,6 +152,7 @@ class _ParentHomePageState extends State<ParentHomePage> {
 
     setState(() {});
   }
+
 
   Future<void> fetchCurrentUser() async {
 

@@ -8,7 +8,7 @@ import 'package:sda/landing-page/head_teacher/teachers_details.dart';
 import '../../models/auth_teacher_model.dart';
 
 class HeadTeacherDashboard extends StatefulWidget {
-   const HeadTeacherDashboard({super.key});
+  const HeadTeacherDashboard({super.key});
 
   @override
   _HeadTeacherDashboardState createState() => _HeadTeacherDashboardState();
@@ -69,15 +69,13 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
         centerTitle: true,
         elevation: 0,
       ),
-      body:
-      isLoading ?
-           const Center(
+      body: isLoading
+          ? const Center(
               child: CircularProgressIndicator(
                 color: Color(0xFF151864),
               ),
             )
-          :
-        ListView.builder(
+          : ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 16),
               itemCount: teachers.length,
               itemBuilder: (context, index) {
@@ -132,7 +130,8 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => TeacherDetailsPage(teacher: teacher),
+                          builder: (context) =>
+                              TeacherDetailsPage(teacher: teacher),
                         ),
                       );
                     },
@@ -177,8 +176,9 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
             if (titleController.text.isEmpty ||
                 descriptionController.text.isEmpty) {
               ScaffoldMessenger.of(context).showSnackBar(
-
-                const SnackBar(content: Text('Please fill all fields')),
+                const SnackBar(
+                    backgroundColor: Colors.red,
+                    content: Text('Please fill all fields')),
               );
               return;
             }
@@ -200,12 +200,16 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
               });
 
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Announcement sent successful')),
+                const SnackBar(
+                    backgroundColor: Colors.green,
+                    content: Text('Announcement sent successful')),
               );
               Navigator.pop(context);
             } catch (e) {
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Failed to create announcement: $e')),
+                SnackBar(
+                    backgroundColor: Colors.red,
+                    content: Text('Failed to create announcement: $e')),
               );
             }
           }
@@ -287,9 +291,3 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
     );
   }
 }
-
-
-
-
-
-
