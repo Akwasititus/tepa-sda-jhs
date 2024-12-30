@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sda/landing-page/teachers/teacher_student_details.dart';
 import '../../models/auth_model.dart';
-import 'package:intl/intl.dart';
 
 import 'date.dart';
 
@@ -203,121 +202,6 @@ class _StudentsListPageState extends State<StudentsListPage> {
         },
       );
     }
-
-
-    // void showAddQuizForm() {
-    //   showModalBottomSheet(
-    //     context: context,
-    //     isScrollControlled: true,
-    //     shape: const RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.vertical(
-    //         top: Radius.circular(25),
-    //       ),
-    //     ),
-    //     backgroundColor: Colors.white,
-    //     builder: (BuildContext context) {
-    //       return Container(
-    //         padding: EdgeInsets.only(
-    //           bottom: MediaQuery.of(context).viewInsets.bottom,
-    //           top: 20,
-    //           left: 20,
-    //           right: 20,
-    //         ),
-    //         child: SingleChildScrollView(
-    //           child: Column(
-    //             mainAxisSize: MainAxisSize.min,
-    //             crossAxisAlignment: CrossAxisAlignment.stretch,
-    //             children: [
-    //               // Bottom sheet handle
-    //               Center(
-    //                 child: Container(
-    //                   width: 70,
-    //                   height: 5,
-    //                   margin: const EdgeInsets.only(bottom: 20),
-    //                   decoration: BoxDecoration(
-    //                     color: Colors.grey[300],
-    //                     borderRadius: BorderRadius.circular(10),
-    //                   ),
-    //                 ),
-    //               ),
-    //
-    //               // Title of the bottom sheet
-    //               Text(
-    //                 'Create A New Quiz',
-    //                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-    //                   fontWeight: FontWeight.bold,
-    //                   color: Colors.black87,
-    //                 ),
-    //                 textAlign: TextAlign.center,
-    //               ),
-    //               const SizedBox(height: 20),
-    //
-    //               // Title TextField with custom decoration
-    //               _buildTextField(
-    //                 controller: _titleController,
-    //                 labelText: 'Title',
-    //                 icon: Icons.title,
-    //               ),
-    //               const SizedBox(height: 15),
-    //
-    //               // Description TextField with custom decoration
-    //               _buildTextField(
-    //                 controller: _descriptionController,
-    //                 labelText: 'Description',
-    //                 icon: Icons.description,
-    //                 maxLines: 3,
-    //               ),
-    //               const SizedBox(height: 15),
-    //
-    //               // Quiz Link TextField with custom decoration
-    //               _buildTextField(
-    //                 controller: _quizLinkController,
-    //                 labelText: 'Quiz Link',
-    //                 icon: Icons.link,
-    //                 keyboardType: TextInputType.url,
-    //               ),
-    //               const SizedBox(height: 20),
-    //
-    //               // Deadline selection row
-    //               Row(
-    //                 children: [
-    //                   const Icon(Icons.calendar_today,
-    //                       color: Color(0xFF151864)),
-    //                   Expanded(child: Container()),
-    //                   const SizedBox(width: 11),
-    //                   const DeadlineSelector(),
-    //                 ],
-    //               ),
-    //               const SizedBox(height: 20),
-    //
-    //               // Submit Button
-    //               ElevatedButton(
-    //                 onPressed: isLoading ? null : _submitForm,
-    //                 style: ElevatedButton.styleFrom(
-    //                   backgroundColor: const Color(0xFF151864),
-    //                   foregroundColor: Colors.white,
-    //                   padding: const EdgeInsets.symmetric(vertical: 15),
-    //                   shape: RoundedRectangleBorder(
-    //                     borderRadius: BorderRadius.circular(12),
-    //                   ),
-    //                   elevation: 5,
-    //                 ),
-    //                 child: Text(
-    //                   isLoading ? "Submitting..." : "Submit Quiz",
-    //                   style: const TextStyle(
-    //                     fontSize: 16,
-    //                     fontWeight: FontWeight.bold,
-    //                   ),
-    //                 ),
-    //               ),
-    //               const SizedBox(height: 10),
-    //             ],
-    //           ),
-    //         ),
-    //       );
-    //     },
-    //   );
-    // }
 
     return Scaffold(
       backgroundColor: Colors.grey[50],

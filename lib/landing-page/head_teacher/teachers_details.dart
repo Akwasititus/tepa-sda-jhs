@@ -131,7 +131,7 @@ class TeacherDetailsPage extends StatelessWidget {
                 _buildInfoTile(
                   context,
                   icon: Icons.school_sharp,
-                  title: 'Previous School Attended',
+                  title: 'Previous School',
                   subtitle: teacher.previousSchoolAttended,
                 ),
                 _buildInfoTile(

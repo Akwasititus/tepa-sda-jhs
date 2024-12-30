@@ -4,8 +4,8 @@ import 'package:sda/Auth/register.dart';
 import 'package:sda/widget/custom_button.dart';
 import 'package:sda/widget/custom_textfield.dart';
 
+import '../landing-page/teachers/teachers_landing_page.dart';
 import '../widget/custom_dropdown.dart';
-import '../landing-page/teachers/teachers.dart';
 
 class TeachersLoginScreen extends StatefulWidget {
   const TeachersLoginScreen({super.key});
@@ -30,6 +30,7 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
     final firestore = FirebaseFirestore.instance;
     final indexNumber = indexNumberController.text.trim();
     final level = levelController.text.trim();
+    final staffID = indexNumberController.text.trim();
 
 
     try {
@@ -47,7 +48,8 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
         // Teacher found, navigate to the landing page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => StudentsListPage(selectedClass: level,)),
+          // MaterialPageRoute(builder: (context) => StudentsListPage(selectedClass: level,)),
+          MaterialPageRoute(builder: (context) => TeachersLandingPage(selectedClass: level, staffID: staffID,)),
         );
       }else if(indexNumber.contains("SDA")){
        return;

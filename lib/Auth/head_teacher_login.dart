@@ -82,7 +82,7 @@ class _HeadTeachersLoginScreenState extends State<HeadTeachersLoginScreen> {
     if (value == null || value.isEmpty) {
       return 'ID Number is required';
     }
-    if (value.length < 6) {
+    if (value.length < 5) {
       return 'Staff Number should be at least 5 characters';
     }
     return null;

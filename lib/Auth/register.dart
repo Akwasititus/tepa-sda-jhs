@@ -203,7 +203,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   String? validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Name is required';
+      return 'required';
     }
     return null;
   }
@@ -407,7 +407,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                       const SizedBox(height: 15),
                       CustomTextField(
-                        hintText: 'Previous school attended',
+                        hintText: 'Previous school',
                         controller: teachersPrevSchoolController,
                         keyboardType: TextInputType.name,
                         prefixIcon: Icons.man_sharp,
