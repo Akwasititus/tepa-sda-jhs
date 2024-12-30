@@ -17,18 +17,17 @@ class _QuizPageState extends State<QuizPage> {
   Parent? currentUser;
   bool _isLoading = true;
 
+  @override
+  void initState() {
+    super.initState();
+    fetchCurrentUser();
+  }
   // Function to launch URL (Google Form)
   Future<void> _launchQuizForm(String quizLink) async {
     final Uri url = Uri.parse(quizLink);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch $url');
     }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    fetchCurrentUser();
   }
 
   Future<void> fetchCurrentUser() async {
@@ -85,7 +84,7 @@ class _QuizPageState extends State<QuizPage> {
         stream: FirebaseFirestore.instance
             .collection('quizzes')
             .where('level', isEqualTo: currentUser!.level)
-        .orderBy('updatedAt', descending: true)
+        .orderBy('deadline', descending: true)
             .snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {

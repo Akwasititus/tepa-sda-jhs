@@ -27,6 +27,7 @@ class _TeachersLandingPageState extends State<TeachersLandingPage> {
 
     screens = [
       StudentsListPage(selectedClass: widget.selectedClass),
+      // QuizPage(indexNumber: widget.selectedClass),
       TeacherProfilePage(staffID: widget.staffID),
     ];
   }

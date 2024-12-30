@@ -129,7 +129,7 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
 
                       // Text field for index number
                       CustomTextField(
-                        hintText: 'Staff Number',
+                        hintText: 'Staff ID',
                         controller: indexNumberController,
                         keyboardType: TextInputType.text,
                         prefixIcon: Icons.person,

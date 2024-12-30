@@ -7,8 +7,8 @@ import 'package:sda/widget/custom_button.dart';
 import 'package:sda/widget/profile_custom_text_fields.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../widget/custom_dropdown.dart';
-import '../models/auth_model.dart';
+import '../../widget/custom_dropdown.dart';
+import '../../models/auth_model.dart';
 
 class ProfileUpdateScreen extends StatefulWidget {
   final String indexNumber;
@@ -194,24 +194,29 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
               color: const Color(0xFF151864),
               padding:
                   const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: Column(
+              child: const Column(
                 children: [
-                  const SizedBox(height: 20),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       // Parent Image
-                      _buildImagePicker(
-                        isParent: true,
-                        image: parentImage,
-                        title: 'Parent Photo',
-                      ),
+                      // _buildImagePicker(
+                      //   isParent: true,
+                      //   image: parentImage,
+                      //   title: 'Parent Photoccc',
+                      // ),
+
+
                       // Child Image
-                      _buildImagePicker(
-                        isParent: false,
-                        image: childImage,
-                        title: 'Student Photo',
-                      ),
+
+
+
+                      // _buildImagePicker(
+                      //   isParent: false,
+                      //   image: childImage,
+                      //   title: 'Student Photosss',
+                      // ),
                     ],
                   ),
                 ],

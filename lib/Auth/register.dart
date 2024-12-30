@@ -184,10 +184,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   String? validateIndexOrStaffID(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Index Number is required';
+      return 'Student ID is required';
     }
     if (value.length < 5) {
-      return 'Index Number should be at least 5 characters';
+      return 'Student ID should be at least 5 characters';
     }
     if (!value.contains("TSDA")) {
       return 'Invalid Student Number; must be uppercase.';
@@ -304,7 +304,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                       // Student Index Number
                       CustomTextField(
-                        hintText: 'Student Index Number',
+                        hintText: 'Student ID',
                         controller: indexNumberController,
                         keyboardType: TextInputType.text,
                         prefixIcon: Icons.numbers,

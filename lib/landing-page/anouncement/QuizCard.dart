@@ -8,13 +8,13 @@ class QuizCard extends StatelessWidget {
   final Future<void> Function(String) onLaunchQuiz;
 
   const QuizCard({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     required this.deadline,
     required this.quizLink,
     required this.onLaunchQuiz,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

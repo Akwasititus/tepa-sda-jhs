@@ -5,7 +5,7 @@ import 'package:sda/Auth/teachers_login.dart';
 import 'package:sda/widget/custom_button.dart';
 import 'package:sda/widget/custom_textfield.dart';
 
-import '../landing-page/landing_page.dart';
+import '../landing-page/parents/landing_page.dart';
 import 'forget_index.dart';
 import 'head_teacher_login.dart';
 

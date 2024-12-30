@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sda/landing-page/parents.dart';
-import 'package:sda/landing-page/profile_page.dart';
+import 'package:sda/landing-page/parents/parents.dart';
+import 'package:sda/landing-page/parents/profile_page.dart';
 
-import 'anouncement/anouncement.dart';
+
+import '../anouncement/anouncement.dart';
 
 class LandingPage extends StatefulWidget {
   final String indexNumber;

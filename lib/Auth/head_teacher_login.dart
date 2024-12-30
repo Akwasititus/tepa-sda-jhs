@@ -1,12 +1,9 @@
 import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:sda/Auth/register.dart';
 import 'package:sda/widget/custom_button.dart';
 import 'package:sda/widget/custom_textfield.dart';
 
-import '../widget/custom_dropdown.dart';
 import '../landing-page/head_teacher/head_teacher.dart';
-import '../landing-page/teachers/teachers.dart';
 
 class HeadTeachersLoginScreen extends StatefulWidget {
   const HeadTeachersLoginScreen({super.key});

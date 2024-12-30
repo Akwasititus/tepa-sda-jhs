@@ -30,7 +30,7 @@ class _StudentsListPageState extends State<StudentsListPage> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _quizLinkController = TextEditingController();
-  DateTime? _deadline;
+  DateTime? deadline;
 
   void _submitForm() async {
     final String title = _titleController.text.trim();
@@ -47,7 +47,7 @@ class _StudentsListPageState extends State<StudentsListPage> {
         'title': title,
         'level': widget.selectedClass,
         'description': description,
-        'deadline': _deadline,
+        'deadline': deadline,
         'quizLink': quizLink,
         // 'updatedAt':  FieldValue.serverTimestamp()
       });
@@ -79,7 +79,7 @@ class _StudentsListPageState extends State<StudentsListPage> {
     _descriptionController.clear();
     _quizLinkController.clear();
     setState(() {
-      _deadline = null;
+      deadline = null;
     });
   }
 
@@ -163,12 +163,19 @@ class _StudentsListPageState extends State<StudentsListPage> {
                   const SizedBox(height: 20.1),
 
                   // Deadline selection row
-                  const Row(
+                   Row(
                     children: [
-                      Icon(Icons.calendar_today,
+                      const Icon(Icons.calendar_today,
                           color: Color(0xFF151864)),
                       SizedBox(width: 11),
-                      DeadlineSelector(),
+                      // DeadlineSelector(onDateTimeSelected: (DateTime ) {  },),
+                      DeadlineSelector(
+                        onDeadlineSelected: (DateTime selectedDeadline) {
+                          setState(() {
+                            deadline = selectedDeadline;
+                          });
+                        },
+                      ),
 
                     ],
                   ),
@@ -436,3 +443,6 @@ class _StudentsListPageState extends State<StudentsListPage> {
 String _formatDeadline(DateTime deadline) {
   return '${deadline.day}/${deadline.month}/${deadline.year} ${deadline.hour}:${deadline.minute.toString().padLeft(2, '0')}';
 }
+
+
+

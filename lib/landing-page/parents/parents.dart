@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:sda/landing-page/student_details.dart';
-import '../models/auth_model.dart';
+import 'package:sda/landing-page/parents/student_details.dart';
+import '../../models/auth_model.dart';
 
 
 class ParentHomePage extends StatefulWidget {
