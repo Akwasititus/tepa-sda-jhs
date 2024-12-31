@@ -116,6 +116,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    const Text(
+                      'TEPA SDA JHS',
+                      style: TextStyle(
+                        fontSize: 22,
+
+                        fontWeight: FontWeight.w900,
+                        color: Color(0xFF151864), // Dark green to match logo
+                      ),
+                    ),
                     // School logo
                     Image.asset(
                       'assets/sda.png',
@@ -128,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Welcome to Tepa S.D.A School',
                       style: TextStyle(
                         fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xFF151864), // Dark green to match logo
                       ),
                     ),
@@ -191,7 +200,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     // Login button
                     CustomButton(
                         color: isLoading ? const Color(0xFF151864).withOpacity(0.5) : const Color(0xFF151864),
-                        text: isLoading ?  'Logging in' : 'Login',
+                        text: isLoading ?  'Logging in...' : 'Login',
                         onPressed: () => authenticateUser(context)
                     ),
                     const SizedBox(height: 15),
@@ -209,7 +218,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegisterScreen()),
+                                  builder: (context) => const RegisterScreen()),
                             );
                           },
                           child: const Text(
@@ -222,12 +231,16 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ],
                     ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 100,vertical: 5),
+                      child: Divider(),
+                    ),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Sign-up? ',
+                          'Log-in   ',
                           style: TextStyle(
                             color: Colors.grey[700],
                           ),
@@ -255,7 +268,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Sign-up? ',
+                          'Log-in   ',
                           style: TextStyle(
                             color: Colors.grey[700],
                           ),

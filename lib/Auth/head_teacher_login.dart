@@ -92,6 +92,7 @@ class _HeadTeachersLoginScreenState extends State<HeadTeachersLoginScreen> {
       body: Stack(
           children: [
 
+
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -100,6 +101,14 @@ class _HeadTeachersLoginScreenState extends State<HeadTeachersLoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Text(
+                        'TEPA SDA JHS',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF151864),
+                        ),
+                      ),
                       // School logo
                       Image.asset(
                         'assets/sda.png',
@@ -111,8 +120,8 @@ class _HeadTeachersLoginScreenState extends State<HeadTeachersLoginScreen> {
                       const Text(
                         'Welcome, Mr Head Master',
                         style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
                           color: Color(0xFF151864), // Dark green to match logo
                         ),
                       ),

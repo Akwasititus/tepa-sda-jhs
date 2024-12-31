@@ -99,6 +99,14 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const Text(
+                        'TEPA SDA JHS',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF151864),
+                        ),
+                      ),
                       // School logo
                       Image.asset(
                         'assets/sda.png',
@@ -110,8 +118,8 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
                       const Text(
                         'Welcome to S.D.A Teachers Portal',
                         style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
                           color: Color(0xFF151864), // Dark green to match logo
                         ),
                       ),

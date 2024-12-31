@@ -223,6 +223,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 60),
+                    const Text(
+                      'TEPA SDA JHS',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF151864),
+                      ),
+                    ),
 
                     // School logo
                     Image.asset(
@@ -236,7 +244,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       'Create New Account',
                       style: TextStyle(
                         fontSize: 22,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w400,
                         color: Color(0xFF151864),
                       ),
                     ),
