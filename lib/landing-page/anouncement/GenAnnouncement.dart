@@ -131,7 +131,10 @@ class GenAnnouncement extends StatelessWidget {
                     Text(
                       data['description'] ?? 'No description available',
                       style: Theme.of(context).textTheme.bodyMedium,
+                      maxLines: 2, // Limit to 2 lines
+                      overflow: TextOverflow.ellipsis,
                     ),
+
                   ],
                 ),
               ),
