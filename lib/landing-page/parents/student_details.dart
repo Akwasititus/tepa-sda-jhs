@@ -522,10 +522,11 @@ class _UserDetailScreenState extends State<UserDetailScreen> with SingleTickerPr
     return SingleChildScrollView(
       child: Column(
         children: [
-          _buildSectionTitle('Profile pictures'),
-          _buildProfileHeader(),
+          // _buildSectionTitle('Profile pictures'),
+          // _buildProfileHeader(),
           ExpansionTile(
             title:  _buildSectionTitle('Basic Information'),
+            initiallyExpanded: true,
             children: [
               _buildInfoTile('Student Name', widget.studentName, Icons.person_outline),
               _buildInfoTile('Student ID', widget.studentIndex, Icons.badge),

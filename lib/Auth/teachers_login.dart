@@ -116,7 +116,7 @@ class _TeachersLoginScreenState extends State<TeachersLoginScreen> {
 
                       // Title
                       const Text(
-                        'Welcome to S.D.A Teachers Portal',
+                       "Tepa S.D.A JHS Teacher Portal",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w400,

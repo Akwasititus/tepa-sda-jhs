@@ -240,20 +240,20 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                imageFile != null
-                    ? Image.file(imageFile!, height: 150, fit: BoxFit.cover)
-                    : ElevatedButton.icon(
-                        onPressed: pickImage,
-                        icon: const Icon(
-                          Icons.image,
-                          color: Colors.white,
-                        ),
-                        label: const Text('Pick Image',
-                            style: TextStyle(color: Colors.white)),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF151864),
-                        ),
-                      ),
+                // imageFile != null
+                //     ? Image.file(imageFile!, height: 150, fit: BoxFit.cover)
+                //     : ElevatedButton.icon(
+                //         onPressed: pickImage,
+                //         icon: const Icon(
+                //           Icons.image,
+                //           color: Colors.white,
+                //         ),
+                //         label: const Text('Pick Image',
+                //             style: TextStyle(color: Colors.white)),
+                //         style: ElevatedButton.styleFrom(
+                //           backgroundColor: const Color(0xFF151864),
+                //         ),
+                //       ),
                 const SizedBox(height: 10),
                 TextField(
                   controller: titleController,

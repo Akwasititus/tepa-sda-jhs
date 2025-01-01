@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                     // Subtitle
                     Text(
-                      'Enter your Index Number to Login',
+                      'Enter your Student ID to Login',
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.grey[700],
@@ -158,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomTextField(
-                          hintText: 'Index Number',
+                          hintText: 'Student ID',
                           controller: indexNumberController,
                           keyboardType: TextInputType.text,
                           prefixIcon: Icons.person,

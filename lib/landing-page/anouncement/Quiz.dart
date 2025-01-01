@@ -91,14 +91,49 @@ class _QuizPageState extends State<QuizPage> {
             return const Center(child: CircularProgressIndicator());
           }
 
+          // if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
+          //   return Column(
+          //     children: [
+          //       Center(
+          //         child: Text(
+          //           'Hello ${currentUser?.studentName} ',
+          //           style: const TextStyle(fontSize: 18),
+          //         ),
+          //       ),
+          //       Center(
+          //         child: Text(
+          //           'No quizzes available for this class [ ${currentUser?.level} ]',
+          //           style: const TextStyle(fontSize: 18),
+          //         ),
+          //       ),
+          //     ],
+          //   );
+          // }
+
           if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Center(
-              child: Text(
-                'No quizzes available for this class',
-                style: TextStyle(fontSize: 18),
+            return Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'Hello ${currentUser?.studentName},',
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    'No quizzes available for your class [${currentUser?.level}].',
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'If you think there is, please contact your teacher.',
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                  ),
+                ],
               ),
             );
           }
+
 
           return ListView.builder(
             padding: const EdgeInsets.all(16),
