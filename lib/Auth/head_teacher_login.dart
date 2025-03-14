@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:sda/widget/custom_button.dart';
 import 'package:sda/widget/custom_textfield.dart';
 
+import '../landing-page/head_teacher/all_classes.dart';
 import '../landing-page/head_teacher/head_teacher.dart';
+import '../landing-page/head_teacher/head_teacher_landing_page.dart';
 
 class HeadTeachersLoginScreen extends StatefulWidget {
   const HeadTeachersLoginScreen({super.key});
@@ -44,7 +46,7 @@ class _HeadTeachersLoginScreenState extends State<HeadTeachersLoginScreen> {
           // Navigate to second page for Head Teacher
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const HeadTeacherDashboard()),
+            MaterialPageRoute(builder: (context) => const HeadTeachersLandingPage()),
           );
         } else {
           // If not a head teacher, show error

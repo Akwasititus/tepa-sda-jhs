@@ -15,7 +15,8 @@ class ProfileUpdateScreen extends StatefulWidget {
   const ProfileUpdateScreen({super.key, required this.indexNumber});
 
   @override
-  State<ProfileUpdateScreen> createState() => _ProfileUpdateScreenState();
+  State<ProfileUpdateScreen> createState() =>
+      _ProfileUpdateScreenState();
 }
 
 class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
@@ -175,9 +176,9 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
       _showUpdateSuccessDialog();
     } catch (e) {
       _showErrorDialog();
-    }finally {
+    } finally {
       setState(() {
-        isLoading = true;
+        isLoading = false;
       });
     }
   }
@@ -192,8 +193,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
             // Images Section
             Container(
               color: const Color(0xFF151864),
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: const Column(
                 children: [
                   SizedBox(height: 20),
@@ -207,10 +207,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
                       //   title: 'Parent Photoccc',
                       // ),
 
-
                       // Child Image
-
-
 
                       // _buildImagePicker(
                       //   isParent: false,
@@ -253,7 +250,17 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
                       controller: levelController,
                       prefixIcon: Icons.school,
                       studentLevel: levelController.text,
-                      level: const ['JW1', 'JW2', 'JW3', 'JB1', 'JB2', 'JB3', 'EW1', 'EW2', 'EW3'],
+                      level: const [
+                        'JW1',
+                        'JW2',
+                        'JW3',
+                        'JB1',
+                        'JB2',
+                        'JB3',
+                        'EW1',
+                        'EW2',
+                        'EW3'
+                      ],
                     ),
                     const SizedBox(height: 15),
                     ProfileCustomTextField(
@@ -383,12 +390,15 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
 
                     const SizedBox(height: 30),
                     CustomButton(
-                      text: isLoading ? 'profile updating...': 'Update Profile',
+                      text:
+                          isLoading ? 'profile updating...' : 'Update Profile',
                       onPressed: () {
                         // Implement update logic
                         _updateUserProfile();
-
-                      }, color: isLoading ? const Color(0xFF151864).withOpacity(0.5) : const Color(0xFF151864),
+                      },
+                      color: isLoading
+                          ? const Color(0xFF151864).withOpacity(0.5)
+                          : const Color(0xFF151864),
                     ),
                     const SizedBox(height: 30),
                   ],
@@ -528,8 +538,6 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
       },
     );
   }
-
-
 
   void _showErrorDialog() {
     showDialog(

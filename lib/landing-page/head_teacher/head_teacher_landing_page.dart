@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:sda/landing-page/head_teacher/all_classes.dart';
 import 'package:sda/landing-page/teachers/teachers.dart';
 
 import '../../models/auth_teacher_model.dart';
-import 'TeacherDetailsPage.dart';
 
+import 'head_teacher.dart';
 
-class TeachersLandingPage extends StatefulWidget {
-  final String selectedClass;
-  final String staffID;
+class HeadTeachersLandingPage extends StatefulWidget {
+  // final String selectedClass;
+  // final String staffID;
 
-  const TeachersLandingPage({super.key, required this.selectedClass, required this.staffID});
+  const HeadTeachersLandingPage(
+      {super.key});
 
   @override
-  State<TeachersLandingPage> createState() => _TeachersLandingPageState();
+  State<HeadTeachersLandingPage> createState() => _HeadTeachersLandingPageState();
 }
 
-class _TeachersLandingPageState extends State<TeachersLandingPage> {
+class _HeadTeachersLandingPageState extends State<HeadTeachersLandingPage> {
   int currentIndex = 0;
 
   late List<Widget> screens;
@@ -26,12 +28,11 @@ class _TeachersLandingPageState extends State<TeachersLandingPage> {
     super.initState();
 
     screens = [
-      StudentsListPage(selectedClass: widget.selectedClass),
-      TeacherProfilePage(staffID: widget.staffID),
+      const HeadTeacherDashboard(),
+      const AllClasses()
+      // StudentsListPage(selectedClass: widget.selectedClass),
     ];
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -65,12 +66,11 @@ class _TeachersLandingPageState extends State<TeachersLandingPage> {
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.group),
-              label: 'Your Students',
+              label: 'Teachers',
             ),
-
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'Profile',
+              label: 'Parents',
             ),
           ],
         ),

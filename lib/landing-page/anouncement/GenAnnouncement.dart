@@ -134,7 +134,6 @@ class GenAnnouncement extends StatelessWidget {
                       maxLines: 2, // Limit to 2 lines
                       overflow: TextOverflow.ellipsis,
                     ),
-
                   ],
                 ),
               ),
