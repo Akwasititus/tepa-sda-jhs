@@ -1,5 +1,8 @@
+import 'dart:convert';
+
+import 'package:firebase_cloud_firestore/firebase_cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:http/http.dart' as http;
 import 'package:sda/landing-page/teachers/teacher_student_details.dart';
 import '../../models/auth_model.dart';
 
@@ -52,6 +55,9 @@ class _StudentsListPageState extends State<StudentsListPage> {
         // 'updatedAt':  FieldValue.serverTimestamp()
       });
 
+      // Send email notification
+      await _sendEmailToHeadteacher(title, widget.selectedClass, quizLink);
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           backgroundColor: Colors.green,
@@ -60,8 +66,11 @@ class _StudentsListPageState extends State<StudentsListPage> {
       Navigator.of(context).pop();
       _clearFormFields();
     } catch (error) {
-      ScaffoldMessenger.of(context).showSnackBar(
 
+      print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2");
+      print(error);
+
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
             backgroundColor: Colors.red,
             content: Text('Failed to add quiz: $error')),
@@ -73,6 +82,38 @@ class _StudentsListPageState extends State<StudentsListPage> {
       });
     }
   }
+
+  Future<void> _sendEmailToHeadteacher(String quizTitle, String selectedClass, String quizLink) async {
+    const String apiUrl = "https://email-to-sda-headmaster.vercel.app/send-email-to-headteacher";
+
+    final Map<String, dynamic> requestBody = {
+      "quizTitle": quizTitle,
+      "selectedClass": selectedClass,
+      "quizLink": quizLink,
+      "recipientEmail": "tepasdajhs07@gmail.com"
+    };
+
+    try {
+      final response = await http.post(
+        Uri.parse(apiUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode(requestBody),
+      );
+
+      if (response.statusCode == 200) {
+        print("Email sent successfully: ${response.body}");
+      } else {
+        print("Failed to send email: ${response.statusCode}, ${response.body}");
+        throw Exception("Failed to send email");
+      }
+    } catch (e) {
+      print("Error sending email: $e");
+      throw Exception("Error sending email");
+    }
+  }
+
+
+
 
   void _clearFormFields() {
     _titleController.clear();

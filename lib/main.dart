@@ -5,6 +5,7 @@ import 'firebase_options.dart';
 
 
 Future<void> main() async {
+  // await dotenv.load(fileName: '.env');
   runApp(const MyApp());
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

@@ -6,6 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sda/landing-page/head_teacher/teachers_details.dart';
 import '../../models/auth_teacher_model.dart';
+import '../anouncement/GenAnnouncement.dart';
 
 class HeadTeacherDashboard extends StatefulWidget {
   const HeadTeacherDashboard({super.key});
@@ -139,13 +140,27 @@ class _HeadTeacherDashboardState extends State<HeadTeacherDashboard> {
                 );
               },
             ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF151864),
-        onPressed: () => _showCreateAnnouncementBottomSheet(context),
-        child: const Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton.extended(
+            backgroundColor: const Color(0xFF151864),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const GenAnnouncement()),
+              );
+            },
+            label: const Text("view Announcement",style: TextStyle(color: Colors.white),),
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton.extended(
+            backgroundColor: const Color(0xFF151864),
+            onPressed: () => _showCreateAnnouncementBottomSheet(context),
+            label: const Text('create Announcement',style: TextStyle(color: Colors.white),),
+          ),
+        ],
       ),
     );
   }

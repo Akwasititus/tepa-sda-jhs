@@ -43,6 +43,7 @@ dependencies:
   http:
   cached_network_image:
   url_launcher:
+#  flutter_dotenv: ^5.0.2
 
 
 dev_dependencies:
